@@ -1,0 +1,60 @@
+a)
+Counting objects: 4, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 609 bytes | 0 bytes/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local objects.
+To https://github.com/jeeriff/GitAssignment.git
+   8ebce90..507a1ee  master -> master
+
+b)
+At the time of this writing, there have been 12 total commits.
+Command used:
+git log --pretty=oneline
+
+c)
+The file ".gitignore" was last modified on September 15, 2016 at 10:29:34.
+Command used:
+git log .gitignore
+
+d)
+Rolegame.java
+Modified: 2 times
+Command used:
+git log --follow Rolegame.java
+
+BasicWeapon.java
+Modified: 2 times
+Command used:
+git log --follow BasicWeapon.java
+
+Sword.java
+Modified: 4 times
+Command used:
+git log --follow Sword.java
+
+Weapon.java
+Modified: 2 times
+Command used:
+git log --follow Weapon.java
+
+WeaponFactory.java
+Modified: 3 times
+Command used:
+git log --follow WeaponFactory.java
+
+e)
+The command "git log" shows the user the "commit" history of a file or directory.
+The command "git status" shows the user the current "commit" status of the file or directory.
+
+f)
+Command used:
+git log --follow src/edu/fsu/cs/cen4021/RoleGame.java
+
+g)
+Command used:
+git log --grep="file"
+
+h)
+git log --auther=Alice --after="2016-09-01" --before=="2016-09-16"
