@@ -29,6 +29,13 @@ public class RoleGame {
         armor = 25;
         System.out.println("SimpleAxe was able to do " + axe.hit(armor) +
                 " of damage due to an armor with " + armor + " points.");
+
+        //SimpleMagicStaff test
+        Weapon staff = WeaponFactory.getWeapon("simplemagicstaff");
+        armor = 35;
+        System.out.println("SimpleMagicStaff was able to do " + staff.hit(armor) +
+                " of damage due to an armor with " + armor + " points.");
+
         //TODO: Add the remaining weapons here
 
     }
