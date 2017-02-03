@@ -16,6 +16,8 @@ public class WeaponFactory {
                 return new Sword();
             case "simplearrow":
                 return new SimpleArrow();
+            case "simpleaxe":
+                return new SimpleAxe();
             default:
                 throw new IllegalArgumentException("Invalid type");
         }
