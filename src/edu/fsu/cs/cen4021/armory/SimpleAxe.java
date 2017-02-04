@@ -25,6 +25,8 @@ class SimpleAxe extends BasicWeapon implements Weapon {
     }
 
     @Override
+    //Armor behavior:
+    //Ignores all armor if armor points are between 0 and 20
     public int hit(int armor) {
         if(armor > 0 && armor < 20)
             armor = 0;

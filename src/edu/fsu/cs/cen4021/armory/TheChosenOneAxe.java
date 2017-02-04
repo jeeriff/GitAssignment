@@ -32,9 +32,10 @@ class TheChosenOneAxe extends BasicWeapon implements Weapon {
         int damageFound = 0;
         int damageNumber = 0;
 
+        //File for armor calculation is opened
         try (BufferedReader br = new BufferedReader((new FileReader(fileName)))) {
             while ((currentLine = br.readLine()) != null && damageFound == 0) {
-                if(index < 4) {
+                if(index < 4) { //Special cases are required for the first 2 lines
                     if(index == 1)
                         firstLine = currentLine;
                     if(index == 2)
@@ -43,15 +44,19 @@ class TheChosenOneAxe extends BasicWeapon implements Weapon {
                         if(!(Objects.equals(lastLine, currentLine)) && Objects.equals(firstLine, currentLine)) {
                             damageNumber = 2;
                             damageFound = 1;
-                        }
+                        } //If lines 2 and 3 are different but 1 and 3 are the same, 2 is the damage number
                         else if (!(Objects.equals(firstLine, lastLine)) && Objects.equals(lastLine, currentLine)) {
                             damageNumber = 1;
                             damageFound = 1;
-                        }
+                        } //If lines 1 and 2 are different but 2 and 3 are the same, 1 is the damage number
+                        else if (!(Objects.equals(firstLine, currentLine)) && Objects.equals(firstLine, lastLine)) {
+                            damageNumber = 3;
+                            damageFound = 1;
+                        } //If lines 1 and 3 are different but 1 and 2 are the same, 3 is the damage number
                     }
                 }
-                else {
-                    if (!(Objects.equals(currentLine, lastLine)) && index > 2) {
+                else { //Beyond the first 3 lines, the search is simpler and more straightforward
+                    if (!(Objects.equals(currentLine, lastLine)) && index > 3) {
                         damageFound = 1;
                         damageNumber = index;
                     }
@@ -73,6 +78,8 @@ class TheChosenOneAxe extends BasicWeapon implements Weapon {
     }
 
     @Override
+    //Armor behavior:
+    //Ignores all armor if armor points are between 0 and 20
     public int hit(int armor) {
         if(armor > 0 && armor < 20)
             armor = 0;

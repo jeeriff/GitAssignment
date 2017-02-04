@@ -25,6 +25,8 @@ class SimpleArrow extends BasicWeapon implements Weapon {
     }
 
     @Override
+    //Armor behavior:
+    //Ignores 5 points of armor
     public int hit(int armor) {
         if(armor > 5)
             armor = armor - 5;
