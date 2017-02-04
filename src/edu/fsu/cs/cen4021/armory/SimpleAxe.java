@@ -29,9 +29,8 @@ class SimpleAxe extends BasicWeapon implements Weapon {
         if(armor > 0 && armor < 20)
             armor = 0;
         int damage = DAMAGE - armor;
-        if (damage < 0) {
+        if (damage < 0)
             return 0;
-        }
         return damage;
     }
 
