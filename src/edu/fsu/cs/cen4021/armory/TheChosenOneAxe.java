@@ -13,12 +13,18 @@ import java.util.stream.Stream;
  * Matthew Harrison
  * FSUID:msh13d
  * CS Account: harrison
+ *
  * The Chosen One Axe class implementation
  * Base damage: Determined by reading thechosenone.txt file
  * Armor behavior:
  * Ignores all armor if armor points are between 0 and 20.
+ *
  * Implementation format derived from style implemented by
  * Javier Avila in the Sword class.
+ *
+ * Format for text file read was derived from:
+ * http://stackoverflow.com/questions/5868369/how-to-read-a-large-text-file-line-by-line-using-java
+ * https://www.mkyong.com/java8/java-8-stream-read-a-file-line-by-line/
  */
 
 class TheChosenOneAxe extends BasicWeapon implements Weapon {
