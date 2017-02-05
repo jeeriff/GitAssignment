@@ -17,12 +17,14 @@ public class RoleGame {
 
         //SimpleArrow test
         Weapon arrow = WeaponFactory.getWeapon("simplearrow");
+        System.out.println("SimpleArrow has " + arrow.hit() + " of damage.");
         armor = 15;
         System.out.println("SimpleArrow was able to do " + arrow.hit(armor) +
                 " of damage due to an armor with " + armor + " points.");
 
         //SimpleAxe test
         Weapon axe = WeaponFactory.getWeapon("simpleaxe");
+        System.out.println("SimpleAxe has " + axe.hit() + " of damage.");
         armor = 12;
         System.out.println("SimpleAxe was able to do " + axe.hit(armor) +
                 " of damage due to an armor with " + armor + " points.");
@@ -32,12 +34,14 @@ public class RoleGame {
 
         //SimpleMagicStaff test
         Weapon staff = WeaponFactory.getWeapon("simplemagicstaff");
+        System.out.println("SimpleMagicStaff has " + staff.hit() + " of damage.");
         armor = 35;
         System.out.println("SimpleMagicStaff was able to do " + staff.hit(armor) +
                 " of damage due to an armor with " + armor + " points.");
 
         //TheChosenOneAxe test
         Weapon chosenAxe = WeaponFactory.getWeapon("chosenoneaxe");
+        System.out.println("TheChosenOneAxe has " + chosenAxe.hit() + " of damage.");
         armor = 15;
         System.out.println("TheChosenOneAxe was able to do " + chosenAxe.hit(armor) +
                 " of damage due to an armor with " + armor + " points.");
@@ -47,6 +51,7 @@ public class RoleGame {
 
         //AncientMagicStaff test
         Weapon ancientStaff = WeaponFactory.getWeapon("ancientstaff");
+        System.out.println("AncientMagicStaff has " + ancientStaff.hit() + " of damage.");
         armor = 400;
         System.out.println("AncientMagicStaff was able to do " + ancientStaff.hit(armor) +
                 " of damage due to an armor with " + armor + " points.");
