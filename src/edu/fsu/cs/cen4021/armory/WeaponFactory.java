@@ -7,6 +7,10 @@ package edu.fsu.cs.cen4021.armory;
 
 /**
  * @author Javier
+ * New classes implement by:
+ * Matthew Harrison
+ * FSUID:msh13d
+ * CS Account: harrison
  */
 public class WeaponFactory {
 
@@ -24,6 +28,8 @@ public class WeaponFactory {
                 return new TheChosenOneAxe();
             case "ancientstaff":
                 return new AncientMagicStaff();
+            case "webritualarrow":
+                return new WebRitualArrow();
             default:
                 throw new IllegalArgumentException("Invalid type");
         }

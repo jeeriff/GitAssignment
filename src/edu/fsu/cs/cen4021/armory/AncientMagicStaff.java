@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.io.IOException;
 import java.util.Collections;
 
-
 /**
  * Created by msharrison on 2/4/17.
  * Matthew Harrison
@@ -26,7 +25,6 @@ import java.util.Collections;
  */
 
 class AncientMagicStaff extends BasicWeapon implements Weapon {
-
     int DeserializeStaff() {
         ArrayList<Integer> list;
         int finalDamage = 0;
