@@ -24,6 +24,36 @@ import java.util.Objects;
  */
 
 class WebRitualArrow extends BasicWeapon implements Weapon {
+    //Damage number is calculated in GetDamage()
+    int arrowDamage = GetDamage();
+
+    //Constructor
+    WebRitualArrow() { super(0); }
+
+    @Override
+    //Hit with no armor
+    public int hit() {
+        return arrowDamage;
+    }
+
+    @Override
+    //Hit with armor
+    //Armor behavior:
+    //Ignores 10 points of armor
+    public int hit(int armor) {
+        if(armor > 10)
+            armor = armor - 10;
+        else
+            armor = 0;
+        int damage = arrowDamage - armor;
+        if (damage < 0) {
+            return 0;
+        }
+        return damage;
+    }
+
+    //GetDamage connects to the provided URL and parses the HTML, looking for the number
+    //associated with the <h1> element
     int GetDamage() {
         int finalDamage;
         try {
@@ -47,27 +77,4 @@ class WebRitualArrow extends BasicWeapon implements Weapon {
         }
         return 0;
     }
-    int arrowDamage = GetDamage();
-    WebRitualArrow() { super(0); }
-
-    @Override
-    public int hit() {
-        return arrowDamage;
-    }
-
-    @Override
-    //Armor behavior:
-    //Ignores 10 points of armor
-    public int hit(int armor) {
-        if(armor > 10)
-            armor = armor - 10;
-        else
-            armor = 0;
-        int damage = arrowDamage - armor;
-        if (damage < 0) {
-            return 0;
-        }
-        return damage;
-    }
-
 }

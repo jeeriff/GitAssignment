@@ -14,17 +14,19 @@ package edu.fsu.cs.cen4021.armory;
  */
 
 class SimpleAxe extends BasicWeapon implements Weapon {
-
+    //Constructor
     SimpleAxe() {
         super(60);
     }
 
     @Override
+    //Hit with no armor
     public int hit() {
         return DAMAGE;
     }
 
     @Override
+    //Hit with armor
     //Armor behavior:
     //Ignores all armor if armor points are between 0 and 20
     public int hit(int armor) {

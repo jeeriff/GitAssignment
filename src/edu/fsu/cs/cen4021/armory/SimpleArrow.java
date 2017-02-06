@@ -14,17 +14,19 @@ package edu.fsu.cs.cen4021.armory;
  */
 
 class SimpleArrow extends BasicWeapon implements Weapon {
-
+    //Constructor
     SimpleArrow() {
         super(70);
     }
 
     @Override
+    //Hit with no armor
     public int hit() {
         return DAMAGE;
     }
 
     @Override
+    //Hit with armor
     //Armor behavior:
     //Ignores 5 points of armor
     public int hit(int armor) {

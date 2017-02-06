@@ -3,10 +3,7 @@ package edu.fsu.cs.cen4021.armory;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Objects;
-import java.util.stream.Stream;
 
 /**
  * Created by msharrison on 2/3/17.
@@ -28,7 +25,35 @@ import java.util.stream.Stream;
  */
 
 class TheChosenOneAxe extends BasicWeapon implements Weapon {
+    //Damage number is calculated in GetDamage()
+    int axeDamage = GetDamage();
 
+    //Constructor
+    TheChosenOneAxe() { super(0); }
+
+    @Override
+    //Hit with no armor
+    public int hit() {
+        return axeDamage;
+    }
+
+    @Override
+    //Hit with armor
+    //Armor behavior:
+    //Ignores all armor if armor points are between 0 and 20
+    public int hit(int armor) {
+        if(armor > 0 && armor < 20)
+            armor = 0;
+        int damage = axeDamage - armor;
+        if (damage < 0)
+            return 0;
+        return damage;
+    }
+
+    /*
+    GetDamage opens the file thechosenone.txt and parses it to determine
+    the damage number for the weapon
+    */
     int GetDamage () {
         String fileName = "conf/thechosenone.txt";
         String firstLine = "";
@@ -68,30 +93,12 @@ class TheChosenOneAxe extends BasicWeapon implements Weapon {
                     }
                     lastLine = currentLine;
                 }
-            ++index;
+                ++index;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return damageNumber;
     }
-    int axeDamage = GetDamage();
-    TheChosenOneAxe() { super(0); }
-
-    @Override
-    public int hit() {
-        return axeDamage;
-    }
-
-    @Override
-    //Armor behavior:
-    //Ignores all armor if armor points are between 0 and 20
-    public int hit(int armor) {
-        if(armor > 0 && armor < 20)
-            armor = 0;
-        int damage = axeDamage - armor;
-        if (damage < 0)
-            return 0;
-        return damage;
-    }
 }
+

@@ -25,6 +25,42 @@ import java.util.Collections;
  */
 
 class AncientMagicStaff extends BasicWeapon implements Weapon {
+    //Damage number is calculated in DeserializeStaff()
+    int staffDamage = DeserializeStaff();
+
+    //Constructor
+    AncientMagicStaff() {
+        super(0);
+    }
+
+    @Override
+    //Hit with no armor
+    public int hit() {
+        return staffDamage;
+    }
+
+    @Override
+    //Hit with armor
+    //Armor behavior:
+    //Ignores 25% of total armor points (rounded down to the nearest point)
+    public int hit(int armor) {
+        double armorDouble = armor;
+        armorDouble = armorDouble * 0.75;
+        armor = (int) armorDouble;
+        int damage = staffDamage - armor;
+        if (damage < 0) {
+            return 0;
+        }
+        return damage;
+    }
+
+    //DeserializeStaff reads the ancientstaff.obj file and manipulates the stored array
+    //list to create the final damage number
+    //The steps are:
+    //**Square all elements in the list
+    //**Remove the second and fifth elements
+    //**Reverse the order of the list
+    //**Add the first, third, and seventh elements to get the final damage number
     int DeserializeStaff() {
         ArrayList<Integer> list;
         int finalDamage = 0;
@@ -59,28 +95,4 @@ class AncientMagicStaff extends BasicWeapon implements Weapon {
         }
         return finalDamage;
     }
-    int staffDamage = DeserializeStaff();
-    AncientMagicStaff() {
-        super(0);
-    }
-
-    @Override
-    public int hit() {
-        return staffDamage;
-    }
-
-    @Override
-    //Armor behavior:
-    //Ignores 25% of total armor points (rounded down to the nearest point)
-    public int hit(int armor) {
-        double armorDouble = armor;
-        armorDouble = armorDouble * 0.75;
-        armor = (int) armorDouble;
-        int damage = staffDamage - armor;
-        if (damage < 0) {
-            return 0;
-        }
-        return damage;
-    }
-
 }

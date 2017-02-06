@@ -14,17 +14,19 @@ package edu.fsu.cs.cen4021.armory;
  */
 
 class SimpleMagicStaff extends BasicWeapon implements Weapon {
-
+    //Constructor
     SimpleMagicStaff() {
         super(80);
     }
 
     @Override
+    //Hit with no armor
     public int hit() {
         return DAMAGE;
     }
 
     @Override
+    //Hit with armor
     //Armor behavior:
     //Ignores 20% of total armor points (rounded down to the nearest point)
     public int hit(int armor) {
