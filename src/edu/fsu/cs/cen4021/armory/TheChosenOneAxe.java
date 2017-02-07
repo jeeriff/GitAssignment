@@ -95,6 +95,7 @@ class TheChosenOneAxe extends BasicWeapon implements Weapon {
                 }
                 ++index;
             }
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
